@@ -1,0 +1,122 @@
+NOTE: The SPAW2 editor from Solmetra can be used with PHP4 and up.
+
+Here is a short tutorial on using Solmetra's SPAW2 editor with PHPMailer-ML:
+
+1. Download SPAW2 editor from
+   http://www.spaweditor.com/en/disp.php/en_products/en_spaw/en_spaw_download
+
+2. Extract the ZIP to your Control Panel in the PHPMailer-ML directory 
+   example:
+   /phpmailer-ml/_acp-ml/spaw2
+
+3. Open spaw2/config.default.php with your text editor and save it as
+   spaw2/config.php
+
+4. Edit spaw2/config.php:
+
+   change line:
+   SpawConfig::setStaticConfigItem('default_theme','spaw2');
+   to
+   SpawConfig::setStaticConfigItem('default_theme','spaw1');
+
+   change line:
+   SpawConfig::setStaticConfigItem('resizing_directions', 'vertical', SPAW_CFG_TRANSFER_JS);
+   to
+   SpawConfig::setStaticConfigItem('resizing_directions', 'both', SPAW_CFG_TRANSFER_JS);
+   
+   change line:
+   "style" => "style",
+   to
+   //"style" => "style",
+   
+   change lines:
+   'allowed_filetypes'   => array('any'),  // allowed filetypes groups/extensions
+	 'allow_modify'        => false,         // allow edit filenames/delete files in directory
+	 'allow_upload'        => false,         // allow uploading new files in directory
+	 //'chmod_to'          => 0777,          // change the permissions of an uploaded file if allowed
+	                                         // (see PHP chmod() function description for details), or comment out to leave default
+	 'max_upload_filesize' => 0,             // max upload file size allowed in bytes, or 0 to ignore
+	 'max_img_width'       => 0,             // max uploaded image width allowed, or 0 to ignore
+	 to
+   'allowed_filetypes'   => array('images'),  // allowed filetypes groups/extensions
+   'allow_modify'        => true,         // allow edit filenames/delete files in directory
+   'allow_upload'        => true,         // allow uploading new files in directory
+   'chmod_to'            => 0777,         // change the permissions of an uploaded file if allowed
+                                          // (see PHP chmod() function description for details), or comment out to leave default
+   'max_upload_filesize' => 0,            // max upload file size allowed in bytes, or 0 to ignore
+   'max_img_width'       => 600,          // max uploaded image width allowed, or 0 to ignore
+
+   change:
+   SpawConfig::setStaticConfigItem(
+	   'PG_SPAWFM_DIRECTORIES',
+	   array(
+	     array(
+	       'dir'     => SpawConfig::getStaticConfigValue('SPAW_DIR').'uploads/flash/',
+	       'caption' => 'Flash movies', 
+	       'params'  => array(
+	         'allowed_filetypes' => array('flash')
+	       )
+	     ),
+	     array(
+	       'dir'     => SpawConfig::getStaticConfigValue('SPAW_DIR').'uploads/images/',
+	       'caption' => 'Images',
+	       'params'  => array(
+	         'default_dir' => true, // set directory as default (optional setting)
+	         'allowed_filetypes' => array('images')
+	       )
+	     ),
+	     array(
+	       'dir'     => SpawConfig::getStaticConfigValue('SPAW_DIR').'uploads/files/',
+	       'fsdir'   => SpawConfig::getStaticConfigValue('SPAW_ROOT').'uploads/files/', // optional absolute physical filesystem path
+	       'caption' => 'Files', 
+	       'params'  => array(
+	         'allowed_filetypes' => array('any')
+	       )
+	     ),
+	   ),
+	   SPAW_CFG_TRANSFER_SECURE
+   );
+   to
+   SpawConfig::setStaticConfigItem(
+	   'PG_SPAWFM_DIRECTORIES',
+	   array(
+	     /*
+	     array(
+	       'dir'     => SpawConfig::getStaticConfigValue('SPAW_DIR').'uploads/flash/',
+	       'caption' => 'Flash movies',
+	       'params'  => array(
+	       'allowed_filetypes' => array('flash')
+	       )
+	     ),
+	     */
+	     array(
+	       'dir'     => SpawConfig::getStaticConfigValue('SPAW_DIR').'uploads/images/',
+	       'caption' => 'Images',
+	       'params'  => array(
+	       'default_dir' => true, // set directory as default (optional setting)
+	       'allowed_filetypes' => array('images')
+	       )
+	     ),
+	     /*
+	     array(
+	       'dir'     => SpawConfig::getStaticConfigValue('SPAW_DIR').'uploads/files/',
+	       'fsdir'   => SpawConfig::getStaticConfigValue('SPAW_ROOT').'uploads/files/', // optional absolute physical filesystem path
+	       'caption' => 'Files',
+	       'params'  => array(
+	       'allowed_filetypes' => array('any')
+	       )
+	     ),
+	     */
+	   ),
+	   SPAW_CFG_TRANSFER_SECURE
+	 );
+
+* NOTES: the directory name 'spaw2' is critical, do not change it
+         - there are no other changes required
+
+Miscellaneous:
+--------------
+
+1. You will need to make the directory _acp-ml/spaw2/uploads writable
+
+   

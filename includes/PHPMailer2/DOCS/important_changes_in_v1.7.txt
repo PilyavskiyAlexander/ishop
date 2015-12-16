@@ -1,0 +1,20 @@
+Please view the "changelog.txt" file for a full list of changes.
+
+PHPMailer-ML v1.7 has significant changes in packaging and in concept.
+
+Packaging:
+
+- we no longer include the subscribe form as part of the core package
+  - the subscribe form is available for download separately
+
+- we no longer include a WYSIWYG editor as part of the core package
+  - the default editor is now a raw textarea form element
+  - SPAW2 WYSIWYG editor is optionally supported (see changelog.txt for download and installation instructions)
+  - CKEditor WYSIWYG editor is optionally supported (see changelog.txt for download and installation instructions)
+
+Overall, the download file is considerably smaller. As an example, the zip file for v1.6 was 2 Mb -- the zip file for v1.7 is 300 Kb.
+
+One quick note: the progress bar originally written for PHPMailer-ML v1.6 will work with PHPMailer-ML v1.7.
+
+Enjoy!
+Andy

@@ -1,0 +1,70 @@
+NOTE: THE CKEditor and KFM file manager are strictly for use with
+      PHP version 5 and up. It will not work with PHP version 4 or lower.
+
+Here is a short tutorial on using CKEditor v3 and  KFM (Kae's File Manager)
+with PHPMailer-ML:
+
+CKEditor:
+---------
+
+1. Download CKEditor from http://ckeditor.com/
+
+2. Extract the ZIP to your Control Panel in the PHPMailer-ML directory 
+   example:
+   /phpmailer-ml/_acp-ml/ckeditor
+
+* NOTES: the directory name 'ckeditor' is critical, do not change it
+         - there are no other changes required
+
+KFM:
+----
+
+1. Download KFM from http://kfm.verens.com/
+
+2. Extract the ZIP to your Control Panel in the PHPMailer-ML directory 
+   example:
+   /phpmailer-ml/_acp-ml/kfm
+
+3. Open kfm/configuration.dist.php with your text editor and save it as
+   kfm/configuration.php
+
+4. Edit kfm/configuration.php:
+   - set the database settings to whatever you want or leave as default to
+     use sqlite
+   - change:
+     $kfm_userfiles_address = '/home/youracct/public_html/phpmailer-ml/_acp-ml/user_imgs';
+     $kfm_userfiles_output  = '/home/youracct/public_html/phpmailer-ml/_acp-ml/user_imgs/';
+   - you need to be aware that the author has written code to track users of
+     KFM ... you are free to disable this with:
+ 		$kfm_dont_send_metrics = 1;
+ 		and for further protection, you can also edit the file: kfm/index.php
+ 		- at line 151 to 156 DELETE:
+		if (!$kfm_dont_send_metrics) {
+			echo '<img src="http://kfm.verens.com/extras/register.php?version='.urlencode(KFM_VERSION).
+				'&amp;domain_name='.urlencode($_SERVER['SERVER_NAME']).
+				'&amp;db_type='.$kfm_db_type.
+			'" />';
+		}
+
+5. Edit kfm/j/kfm.js
+   - change:
+		 if(kfm_vars.show_admin_link) hhtml+='<a href="admin/" id="admin_panel_link">Admin panel</a>';
+		 comment it out as:
+		 //if(kfm_vars.show_admin_link) hhtml+='<a href="admin/" id="admin_panel_link">Admin panel</a>';
+
+6. Delete the directory kfm/admin
+
+7. Create the directory _acp-ml/user_imgs
+
+* NOTES: the directory name 'kfm' is critical, do not change it
+         - there are no other changes required
+
+Miscellaneous:
+--------------
+
+1. You will need to create a new directory in the root of your PHPMailer-ML
+   control panel directory:
+   _acp-ml/user_imgs
+   and set it to writable
+
+   

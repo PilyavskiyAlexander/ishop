@@ -1,0 +1,93 @@
+.---------------------------------------------------------------------------.
+|  Software: PHPMailer-ML - PHP mailing list                                |
+|   Version: 1.7.1                                                          |
+|   Contact: via sourceforge.net support pages (also www.codeworxtech.com)  |
+|      Info: http://phpmailer.sourceforge.net                               |
+|   Support: http://sourceforge.net/projects/phpmailer/                     |
+| ------------------------------------------------------------------------- |
+|    Author: Andy Prevost (project admininistrator)                         |
+| Copyright (c) 2004-2009, Andy Prevost. All Rights Reserved.               |
+| ------------------------------------------------------------------------- |
+|   License: Distributed under the General Public License (GPL)             |
+|            (http://www.gnu.org/licenses/gpl.html)                         |
+| This program is distributed in the hope that it will be useful - WITHOUT  |
+| ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or     |
+| FITNESS FOR A PARTICULAR PURPOSE.                                         |
+| ------------------------------------------------------------------------- |
+| We offer a number of paid services (www.codeworxtech.com):                |
+| - Web Hosting on highly optimized fast and secure servers                 |
+| - Technology Consulting                                                   |
+| - Oursourcing (highly qualified programmers and graphic designers)        |
+'---------------------------------------------------------------------------'
+
+/**
+ * PHPMailer-ML - PHP mailing list manager
+ * @package PHPMailer-ML
+ * @author Andy Prevost
+ * @copyright 2004 - 2009 Andy Prevost. All Rights Reserved.
+ */
+
+THIS IS THE ENTIRE DOCUMENTATION FOR THIS SOFTWARE. IF YOU ARE UNCOMFORTABLE
+PROCEEDING, STOP! THERE IS NO OTHER DOCUMENTATION, NO OTHER HELP. THE
+SOFTWARE IS DESIGNED FOR INTERMEDIATE TO ADVANCED USERS.
+
+PHPMailer-ML is a Mailing List and eMessaging management tool. It is designed
+to show how to use PHPMailer and process everything from one single email to a
+database of subscribers. You are using this at your own risk ... you should
+test this before putting in ANY environment.
+
+Requirements:
+- PHP version 4.2.3 and up
+- MySQL (three tables, they are created automatically)
+- Requires your own SMTP server (GMail will also work)
+  - note: we recommend using Sendmail for small to medium size mailing lists
+
+Features
+- Uses PHPMailer as the email transport class
+  - includes PHPMailer v2.0.4 (to support PHP4)
+  - to support PHP5 and up, download the latest PHPMailer from 
+    phpmailer.worxware.com
+- GPL license (changed in version 1.1)
+- Supports unlimited mailing lists
+- Supports unlimited subscribers for each list
+- Supports unlimited email templates with previews (2 included)
+- Administration control panel with HTTP authentication to control access
+- Default list for newsletter has 'listid' 1
+- Default subscribe form in root directory feeds default newsletter list
+- Subscription process has double opt-in
+- Confirm process is part of double opt-in (confirms email address)
+- Unsubscribe process requires a portion of the link be encrypted
+- Supports URL based images
+- Supports HTML and Text messages, or Text Only messages
+- Supports storing messages (multi-edits) and save/send
+- Supports auto-stripping HTML to create text portion of message using
+  HTML2Text
+- Campaign message editor can be WYSIWYG (and tested on all popular browsers).
+  Changed in v1.7: This change is made to accommodate users that wish to use
+  PHPMailer-ML for managing mailing lists and bulk email sending. They
+  typically use out-of-tree image storage that the SPAW editor does not handle
+  well.
+  - NOTE: The message editor defaults to a textarea control and is NOT WYSIWIG
+    if you wish to use a WYSIWIG editor, please visit either:
+    -- the Solmetra SPAW site at
+    http://www.spaweditor.com/en/disp.php/en_products/en_spaw/en_spaw_download
+    and download directly from there.
+    You will need unzip to the root of the editor in:
+    /_acp-ml/spaw2
+    (please make sure that the directory /_acp-ml/spaw2 includes the file 
+    spaw.inc.php)
+    read the file "notes_editor_spaw2.txt" for instructions on required
+    changes
+    -- or the CKEditor site at http://ckeditor.com/
+    and download directly from there.
+    You will need unzip to the root of the editor in:
+    /_acp-ml/ckeditor
+    read the file "notes_editor_ckeditor.txt" for instructions on required
+    changes
+
+Please provide feedback through the sourceforge.net tracker.
+Please, clearly indicate your feedback is for the PHPMailer-ML package,
+version 1.7.
+
+Enjoy!
+Andy Prevost (codeworxtech)
