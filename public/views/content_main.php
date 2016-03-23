@@ -82,7 +82,7 @@ $result=$database->query($query);
 	$pages = $all_rows/$per_page;
 
 	if ($pages>1){
-		echo "<div style=\"width: 100%; height: 40px; text-align: center;\">";
+		echo "<div id='pagination'>";
 	for ($page=1; $page < $pages+1; $page++) { 
 		echo "<a href='index.php?page={$page}' class=\"number_of_the_pages\">{$page} </a>";
 	}

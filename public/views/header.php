@@ -92,9 +92,9 @@ if(isset($_POST['login'])){
 // 	echo ""$_SESSION['message_for_user'];
 // }
 
-// if(isset($_COOKIE['name'])){
-// 	$dnkjnvzskdjv=$_COOKIE['name'];
-// }
+if(isset($_COOKIE['name'])){
+	$dnkjnvzskdjv=$_COOKIE['name'];
+}
 
 ?>
 <?php
